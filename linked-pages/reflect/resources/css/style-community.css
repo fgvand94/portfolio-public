@@ -1,0 +1,41 @@
+body {
+	margin: 0;
+}
+
+main {
+	margin-top: 100px;
+}
+
+nav {
+	display: flex;
+	position: fixed;
+	z-index: 1;
+	background-color: white;
+	top: 0;
+	width: 100%;
+	justify-content: space-between;
+}
+
+a {
+	cursor: pointer;
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: lightblue;
+}
+
+.navleft {
+	margin-left: 14px;
+}
+
+.navright {
+	display: flex;
+	justify-content: end;
+	margin-right: 14px;
+}
+
+.navright h3 {
+	margin-left: 10px;
+}

@@ -1,0 +1,210 @@
+
+
+body {
+	background-color: black;
+	color: white;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1px solid seashell;
+	height: 69px;
+}
+
+header img {
+	text-align: left;
+	height: 50px;
+	margin-left: 10px;
+}
+
+header nav{
+	display: flex;
+	justify-content: right;
+}
+
+
+nav h3 {
+	text-decoration: underline;
+	margin-left: 20px;
+	margin-right: 10px;
+}
+
+a {
+	color: white;
+}
+
+a:hover {
+	color: lightblue;
+}
+
+.herobackground {
+	background-image: url(https://content.codecademy.com/courses/freelance-1/unit-4/img-mission-background.jpg);
+	height: 700px;
+	width: 1200px;
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.herotext {
+	background-color: black;
+	height: 14%;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0;
+}
+
+.herotext h2{
+	margin-top: 0;
+	margin: auto;
+	font-size: ;
+	font-weight: ;
+}
+
+.herotext h4 {
+	margin-bottom: 0;
+	margin: auto;
+	font-weight: ;
+	font-size: ;
+}
+
+main {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.mainall {
+	text-align: center;
+}
+
+.mainpicscontainer {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+
+.mainpics {
+	width: 300px;
+	height: 200px;
+	background-size: contain;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.mainpics h4 {
+	position: relative;
+	top: 55%;
+}
+
+
+.mainpic1 {
+	background-image: url(https://content.codecademy.com/courses/freelance-1/unit-4/img-berryblitz.jpg);
+
+}
+
+.mainpic2 {
+	background-image: url(https://content.codecademy.com/courses/freelance-1/unit-4/img-spiced-rum.jpg);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.mainpic3 {
+	background-image: url(https://content.codecademy.com/courses/freelance-1/unit-4/img-donut.jpg);
+}
+
+.mainpic4 {
+	background-image: url(https://content.codecademy.com/courses/freelance-1/unit-4/img-myrtle-ave.jpg);
+	margin-top: 3%;
+	margin-right: 50px;
+}
+
+.mainpic5 {
+	background-image: url(https://content.codecademy.com/courses/freelance-1/unit-4/img-bedford-bizarre.jpg);
+	margin-top: 3%;
+	
+}
+
+.pic2ndrow {
+	margin-top: 5%;
+	display: flex;
+	justify-content: center;
+	width: 1000px;
+}
+
+
+.locationbackground {
+	background-image: url(https://content.codecademy.com/courses/freelance-1/unit-4/img-locations-background.jpg);
+	width: 1200px;
+	height:  500px;
+	margin: 5% auto;
+	background-size:;
+	background-repeat: no-repeat;
+	margin-bottom: 0;
+}
+
+.locationbackground h2 {
+	text-align: center;
+	margin-bottom: 15px;
+	position: relative;
+	top: 57.8px;
+}
+
+.locations {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	position: relative;
+	top: 52.08px;
+}
+
+.locations div {
+	color: white;
+	background-color: black;
+	width: 300px;
+	height: 300px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.locations div h3 {
+	font-weight:  ;
+	font-size: ;
+}
+
+.locations div p {
+	font-size: ;
+	font-weight: ;
+}
+
+.loc1 {
+	margin-right: 40px;
+}
+
+.loc3 {
+	margin-left: 40px;
+}
+
+.contact {
+	height: 200px;
+	text-align: center;
+}
+
+.contact h2 {
+	margin-top: 0;
+	margin-bottom: 26px;
+}
+
+.copyright {
+	margin-left: 20px;
+}

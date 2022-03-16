@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Portfolio Page</title>
+	<link rel="stylesheet" type="text/css" href="resources/style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>	
+	<nav>
+		<div class="nav_left">
+			<h2><a href="#about-me">About</a></h2>
+		</div>
+		<div class="nav_center">
+			<h1>Forrest Van Duren</h1>
+			<h2 class="navp"><a href="#projects">Projects</a></h2>
+		</div>
+		<div class="nav_right">
+			<h2><a href="#contact">Contact</a></h2>
+		</div>
+		<div class="hamburger">
+			<div class="hampart1"></div>
+			<div class="hampart2"></div>
+			<div class="hampart3"></div>
+		</div>
+	</nav>
+	<main>
+		<section class="hero">
+			<div class="hero-content">
+				<h1 class="hero-header">I'm a Utah based <br>web designer</h1>
+				<p class="hero-p">Focusing on building attractive and <br>functional websites.</p>
+			</div>
+		</section>
+	<!--	<section class="about" id="about-me">
+			<h1>About Me</h1>
+			<p>I'm new to programming and developing my skills in basic web design. HTML CSS and Java Script. I have here a brief overview of my projects. Most of them were projects from my learning resource but there's a couple that I came up with independently.</p>
+		</section>-->
+		<h2 class="web-page-header">Web Pages</h2>
+		<p class="web-page-p">I've provided a snap shot of a few web pages that I've made.</p>
+		<!--<section class="projects" id="projects">-->
+
+			<!--
+				<h2>Projects</h2>
+				<h3><a href="linked-pages/arts and crafts page/artsncrafts.html">Arts and Crafts</a></h3>
+				<p>This is a project I did that involved creating a fictional arts and crafts page. It was early on before I was taught much and it was all made from a design that was given to me</p>
+				<h3><a href="linked-pages/repurposedliving/excercise.html">Repurposed living</a></h3>
+				<p>This was a project designed for practicing grid in CSS</p>
+				<h3><a href="linked-pages/Tea Cozy/layout.html">Tea Cozy</a></h3>
+				<p>This was a website that i was given the basic layout for how it should look but I wasn't given any instructions as to how the code should look</p>
+				<h3><a href="linked-pages/reflect/reflect.html">Reflect</a></h3>
+				<p>This was an idea for a website that I built from scratch. I wasn't given any direction on this. It utilizes more concepts then any of the other things on this short portfolio although it is still in progress.</p>
+			
+	--> 	<div class="reflect">
+				<a href="linked-pages/reflect/reflect.html" class="reflect-image">
+					
+				</a>
+			</div>
+			<div class="tea-cozy">
+				<a href="linked-pages/Tea Cozy/layout.html" class="tea-image">
+					
+				</a>
+			</div>
+			<div class="repurposed-living">
+				<a href="linked-pages/repurposedliving/excercise.html" class="living-image">
+					
+				</a>
+			</div>
+		<!--</section>-->
+		<section class="blackj">
+			<h2>Java script programs</h2>
+			<h3>Black jack</h3>
+			<p class="blackjp">This is a program I made to simulate playing black jack at a casino.</p> 
+			<div class="center">	
+				<div class="black-jack">
+					<div class="dealer">
+						<p class="dealp">Dealers hand</p>
+						<div class="dealer-hand">
+							<p class="dealbust"></p>
+							<div class="dealsumwrap">
+							<p class="dealsum"></p>
+							</div>	
+						</div>
+					</div>
+					<div class="score">
+						<p>Score</p>
+						<div class="scorenumber">
+							<p class="dealerscore">0</p>
+							<p class="playerscore">0</p>
+						</div>
+						<p class="winmessage"></p>
+						<div class="deck">
+							<img src="resources/pictures/cardback.svg" class="">
+						</div>
+						<div class="cardcontainer">
+							<div class="flipcard flipcard1" id="">
+								<div class="flipinner flipinner1" id="">
+									<div class="playercardback">
+										<img src="resources/pictures/cardback.svg" class="pback">
+									</div>
+									<div class="playercardfront">
+										<img src="" class='pcard1 pcard'>
+									</div>
+								</div>
+							</div>
+							<div class="flipcard flipcard2" id="">	
+								<div class="flipinner flipinner2" id="">
+									<div class="playercardback">
+										<img src="resources/pictures/cardback.svg">
+									</div>
+									<div class="playercardfront">
+										<img src="" class='pcard2 pcard'>
+									</div>	
+								</div>
+							</div>	
+							<div class="flipcard flipcard3" id="">	
+								<div class="flipinner3" id="">
+									<div class="playercardback">
+										<img src="resources/pictures/cardback.svg">
+									</div>
+									<div class='playercardfront'>	
+										<img src="" class='pcard3 pcard'>
+									</div>
+								</div>
+							</div>
+							<div class="flipcard flipcard4" id="">
+								<div class="flipinner4" id="">
+									<div class="playercardback">
+										<img src="resources/pictures/cardback.svg">
+									</div>
+									<div class='playercardfront'>	
+										<img src="" class='pcard4 pcard'>
+									</div>	
+								</div>
+							</div>	
+							<div class="flipcard flipcard5" id="">	
+								<div class="flipinner5" id="">		
+									<div class="playercardback">
+										<img src="resources/pictures/cardback.svg">
+									</div>
+									<div class='playercardfront'>
+										<img src="" class='pcard5 pcard'>
+									</div>	
+								</div>
+							</div>	
+						</div>
+						<div class="dcardcontainer">
+							<div class="dflipcard dflipcard1" id="">
+								<div class="dflipinner dflipinner1" id="">
+									<div class="dcardback">
+										<img src="resources/pictures/cardback.svg">
+									</div>
+									<div class="dcardfront">
+										<img src="" class='dcard1'>
+									</div>
+								</div>
+							</div>
+							<div class="dflipcard dflipcard2" id="">
+								<div class="dflipinner dflipinner2" id="">
+									<div class="dcardback">
+										<img src="resources/pictures/cardback.svg">
+									</div>
+									<div class="dcardfront">
+										<img src="" class='dcard2'>
+									</div>
+								</div>
+							</div>
+							<div class="dflipcard dflipcard3" id="">
+								<div class="dflipinner dflipinner3" id="">
+									<div class="dcardback">
+										<img src="resources/pictures/cardback.svg">
+									</div>
+									<div class="dcardfront">
+										<img src="" class='dcard3'>
+									</div>
+								</div>
+							</div>
+			 				<div class="dflipcard dflipcard4" id="">
+								<div class="dflipinner dflipinner4" id="">
+									<div class="dcardback">
+										<img src="resources/pictures/cardback.svg">
+									</div>
+									<div class="dcardfront">
+										<img src="" class='dcard4'>
+									</div>
+								</div>
+							</div>
+							<div class="dflipcard dflipcard5" id="">
+								<div class="dflipinner dflipinner5" id="">
+									<div class="dcardback">
+										<img src="resources/pictures/cardback.svg">
+									</div>
+									<div class="dcardfront">
+										<img src="" class='dcard5'>
+									</div>
+								</div>
+							</div>	
+						</div>		
+					</div>
+					<div id="playerhand">
+						<p>Your hand</p>
+						<div class="playerhand">
+							<p class="bust"></p>
+							<div class="sumwrap">
+								<p class="cardvalue"></p>
+							</div>
+						</div>
+						<div class="buttons">
+							<button id="newhand">Start new hand</button>
+							<button class="hit">Hit</button>
+							<button class="stay">Stay</button>
+						</div>	
+					</div>					
+				</div>
+			</div>
+		</section>
+	</main>
+	<div class="footer-accent"></div>
+	<footer class="contact">
+		<div class="emailcontainer">
+			<p class="email">Email: <span class="email2">forrestvanduren1@gmail.com</span></p> 
+		</div>
+		<div class="leave-message">
+			<p class="contact"><a name="contact">Send me an email</a></p>
+			<form action="main.html" method="POST" id="form">
+				<label for="name-input"></label>
+				<label for="email-input"></label>
+				<label for="message-input"></label>
+				<div class="sidebyside">					
+					<input class="form-color" type="text" name="name-input" id="name-input" placeholder="Enter your name">
+					<input class="form-color" type="text" name="email-input" id="email-input" placeholder="Enter your email">
+			    </div>
+				<br>
+				<textarea class="form-color" type="text" name="message-input" id="message-input" placeholder="Leave a message" rows="6" cols="44"></textarea>
+				<button class="form-button" type="submit" value="submit">SUBMIT</button>
+			</form>
+		</div>
+		<div class="phonecontainer">
+			<p class="number">Phone: <span class="phone2">801-604-6833</span></p>
+		</div>
+	</footer>
+<script src="./resources/javasc/blackjack.js"></script>
+<script src="./resources/javasc/index.js"></script>
+</body>
+</html>
