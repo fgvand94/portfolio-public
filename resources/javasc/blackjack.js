@@ -1,25 +1,6 @@
 /*Variables for each individual card and suit value posibility*/
 
-/*oh shit i had written an idea here about how to make the animations run smooth and
-then i deleted it when i replaced this after messing it up with the github version. it
-had to do with using async operations so that a new position and then the increment
-were done asynchnously to its previous animation so that it would wait to run until
-the previous animation ran and so wouldn't jump like it does. 
-I tried and have a code snippit i tried at the bottom. It might still work but
-i don't much experience with async functions and not in this type of context.
-my other idea is to use a time stamp to time the previous animation and then do
-a setTimout for the position defining and increiment animation based on the time
-stamp of the previous animation.
-That didn't work either. It delayed the animation based on the time stamp. I thought
-though that the reason the animatin was jumping forward at each button press was
-because everytime the click count went up i was redefining the absolute position
-and so that was negating the previous animation. It seems like regardless the animation
-jumps forward every time you press the hit button. so it's not that the position
-is defined at the end point it's that the animation only renderes through that given
-hit. when you press hit it seems to reset the dom to the point it would have been at
-when everything in the previous hit had elapse. and since I have the animation set
-to forwards that means that the animation jumps to it's end position as if it played
-out but you never saw it. I don't know how to work around this. */
+
 const cardValue = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King', 'Ace'];
 const cardSuit = ['diamonds', 'hearts', 'spades', 'clubs'];
 
@@ -149,7 +130,8 @@ let clickCount = 0;
 /*Number switch that will stop the dealer hand function from executing if a new hand is dealt
 to soon*/
 
-let gameOn = 0
+let gameOn = 0;
+let isBust = false;
 
 
 /*Scalling variable for responsiveness*/
@@ -162,7 +144,125 @@ let click1stamp = 0;
 let click2stamp = 0;
 
 const click1 = () => {
+	flipcard1.style.top = '40%';
+	flipcard1.style.right = '200px';
+	flipcard2.style.top = '40%';
+	flipcard2.style.right = '130px';
+	flipinner3.id = 'flipinner3';
+	flipcard3.id = 'flipcard3';
+	
+	console.log(click1stamp);
+	document.querySelector('#flipcard1').style.animation = 'moveincriment 1s forwards';
+	document.querySelector('#flipcard2').style.animation = 'moveincriment 1s forwards';
+	document.querySelector('#flipcard3').style.animation = 'move3 1s forwards';
+}
+
+
+
+
+const cardPosition = (event) => {
+
+	
+
+	if (scale2.matches) {
+		if (clickCount === 1) {
+
+		flipcard1.style.top = '215%';
+		flipcard1.style.right = '-56.25%';
+		flipcard2.style.top = '215%';
+		flipcard2.style.right = '-73.75%';
+		flipinner3.id = 'flipinner3';
+		flipcard3.id = 'flipcard3';
+		
+		document.querySelector('#flipcard1').style.animation = 'moveincriment 1s forwards';
+		document.querySelector('#flipcard2').style.animation = 'moveincriment 1s forwards';
+		document.querySelector('#flipcard3').style.animation = 'move3 1s forwards';
+		
+		} else if (clickCount === 2) {
+			flipcard1.style.top = '215%';
+			flipcard1.style.right = '-47.5%';
+			flipcard2.style.top = '215%';
+			flipcard2.style.right = '-65%';
+			flipcard3.style.top = '215%';
+			flipcard3.style.right = '-82.5%';
+			flipinner4.id = 'flipinner4';
+			flipcard4.id = 'flipcard4';
+
+			document.querySelector('#flipcard1').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#flipcard2').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#flipcard3').style.animation = 'moveincriment 1s forwards';
+			document.querySelector('#flipcard4').style.animation = 'move4 1s forwards';
+		} else if (clickCount === 3) {
+			flipcard1.style.top = '215%';
+			flipcard1.style.right = '-38.75%';
+			flipcard2.style.top = '215%';
+			flipcard2.style.right = '-56.25%';
+			flipcard3.style.top = '215%';
+			flipcard3.style.right = '-72.5%';
+			flipcard4.style.top = '215%';
+			flipcard4.style.right = '-91.25%';
+			flipinner5.id = 'flipinner5';
+			flipcard5.id = 'flipcard5';
+
+			document.querySelector('#flipcard1').style.animation = 'moveincriment3 1s forwards';
+			document.querySelector('#flipcard2').style.animation = 'moveincriment3 1s forwards';
+			document.querySelector('#flipcard3').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#flipcard4').style.animation = 'moveincriment 1s forwards';
+			document.querySelector('#flipcard5').style.animation = 'move5 1s forwards';
+		}
+	} else if (scale.matches) {
+			if (clickCount === 1) {
+		
+		flipcard1.style.top = '40%';
+		flipcard1.style.right = '82.5px';
+		flipcard2.style.top = '40%';
+		flipcard2.style.right = '47.5px';
+		flipinner3.id = 'flipinner3';
+		flipcard3.id = 'flipcard3';
+		
+		document.querySelector('#flipcard1').style.animation = 'moveincriment 1s forwards';
+		document.querySelector('#flipcard2').style.animation = 'moveincriment 1s forwards';
+		document.querySelector('#flipcard3').style.animation = 'move3 1s forwards';
+		
+		} else if (clickCount === 2) {
 			flipcard1.style.top = '40%';
+			flipcard1.style.right = '100px';
+			flipcard2.style.top = '40%';
+			flipcard2.style.right = '65px';
+			flipcard3.style.top = '40%';
+			flipcard3.style.right = '30px';
+			flipinner4.id = 'flipinner4';
+			flipcard4.id = 'flipcard4';
+
+			document.querySelector('#flipcard1').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#flipcard2').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#flipcard3').style.animation = 'moveincriment 1s forwards';
+			document.querySelector('#flipcard4').style.animation = 'move4 1s forwards';
+		} else if (clickCount === 3) {
+			flipcard1.style.top = '40%';
+			flipcard1.style.right = '117.5px';
+			flipcard2.style.top = '40%';
+			flipcard2.style.right = '82.5px';
+			flipcard3.style.top = '40%';
+			flipcard3.style.right = '47.5px';
+			flipcard4.style.top = '40%';
+			flipcard4.style.right = '12.5px';
+			flipinner5.id = 'flipinner5';
+			flipcard5.id = 'flipcard5';
+
+			document.querySelector('#flipcard1').style.animation = 'moveincriment3 1s forwards';
+			document.querySelector('#flipcard2').style.animation = 'moveincriment3 1s forwards';
+			document.querySelector('#flipcard3').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#flipcard4').style.animation = 'moveincriment 1s forwards';
+			document.querySelector('#flipcard5').style.animation = 'move5 1s forwards';
+		
+		} 
+
+	} else {
+
+		if (clickCount === 1) {
+		
+		flipcard1.style.top = '40%';
 		flipcard1.style.right = '200px';
 		flipcard2.style.top = '40%';
 		flipcard2.style.right = '130px';
@@ -173,11 +273,214 @@ const click1 = () => {
 		document.querySelector('#flipcard1').style.animation = 'moveincriment 1s forwards';
 		document.querySelector('#flipcard2').style.animation = 'moveincriment 1s forwards';
 		document.querySelector('#flipcard3').style.animation = 'move3 1s forwards';
+		
+		} else if (clickCount === 2) {
+			flipcard1.style.top = '40%';
+			flipcard1.style.right = '235px';
+			flipcard2.style.top = '40%';
+			flipcard2.style.right = '165px';
+			
+			console.log(click2stamp);
+			const flip3 = () => {
+			flipcard3.style.top = '40%';
+			flipcard3.style.right = '95px';				
+			document.querySelector('#flipcard3').style.animation = 'moveincriment 1s forwards';
+			}
+
+
+
+			flipinner4.id = 'flipinner4';
+			flipcard4.id = 'flipcard4';
+
+			document.querySelector('#flipcard1').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#flipcard2').style.animation = 'moveincriment2 1s forwards';			
+			document.querySelector('#flipcard4').style.animation = 'move4 1s forwards';
+			/*	
+			if (click1stamp + 1000 < click2stamp) {
+				flip3();
+				console.log(click2stamp);
+			} else {
+				
+			}*/
+			flip3();
+			
+		} else if (clickCount === 3) {
+			flipcard1.style.top = '40%';
+			flipcard1.style.right = '270px';
+			flipcard2.style.top = '40%';
+			flipcard2.style.right = '200px';
+			flipcard3.style.top = '40%';
+			flipcard3.style.right = '130px';
+			flipcard4.style.top = '40%';
+			flipcard4.style.right = '60px';
+			flipinner5.id = 'flipinner5';
+			flipcard5.id = 'flipcard5';
+
+			document.querySelector('#flipcard1').style.animation = 'moveincriment3 1s forwards';
+			document.querySelector('#flipcard2').style.animation = 'moveincriment3 1s forwards';
+			document.querySelector('#flipcard3').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#flipcard4').style.animation = 'moveincriment 1s forwards';
+			document.querySelector('#flipcard5').style.animation = 'move5 1s forwards';
+		}
+	};
+};
+
+
+
+
+const dealerCardPosition = event => {
+
+	if (scale2.matches) {
+			if (hitCount === 1) {
+		
+		dflipcard1.style.top = '215%';
+		dflipcard1.style.left = '-73.75px';
+		dflipcard2.style.top = '215%';
+		dflipcard2.style.left = '-56.25px';
+		dflipinner3.id = 'dflipinner3';
+		dflipcard3.id = 'dflipcard3';
+		
+		document.querySelector('#dflipcard1').style.animation = 'moveincriment 1s forwards';
+		document.querySelector('#dflipcard2').style.animation = 'moveincriment 1s forwards';
+		document.querySelector('#dflipcard3').style.animation = 'move3d 1s forwards';
+		
+		} else if (hitCount === 2) {
+			dflipcard1.style.top = '215%';
+			dflipcard1.style.left = '-82.5px';
+			dflipcard2.style.top = '215%';
+			dflipcard2.style.left = '-65px';
+			dflipcard3.style.top = '215%';
+			dflipcard3.style.left = '-47.5px';
+			dflipinner4.id = 'dflipinner4';
+			dflipcard4.id = 'dflipcard4';
+
+			document.querySelector('#dflipcard1').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#dflipcard2').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#dflipcard3').style.animation = 'moveincriment 1s forwards';
+			document.querySelector('#dflipcard4').style.animation = 'move4d 1s forwards';
+		} else if (hitCount === 3) {
+			dflipcard1.style.top = '215%';
+			dflipcard1.style.left = '-91.25px';
+			dflipcard2.style.top = '215%';
+			dflipcard2.style.left = '-73.75px';
+			dflipcard3.style.top = '215%';
+			dflipcard3.style.left = '-56.25px';
+			dflipcard4.style.top = '215%';
+			dflipcard4.style.left = '-38.75px';
+			dflipinner5.id = 'dflipinner5';
+			dflipcard5.id = 'dflipcard5';
+
+			document.querySelector('#dflipcard1').style.animation = 'moveincriment3 1s forwards';
+			document.querySelector('#dflipcard2').style.animation = 'moveincriment3 1s forwards';
+			document.querySelector('#dflipcard3').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#dflipcard4').style.animation = 'moveincriment 1s forwards';
+			document.querySelector('#dflipcard5').style.animation = 'move5d 1s forwards';
+		}
+	} else if (scale.matches) {
+			if (hitCount === 1) {
+		
+		dflipcard1.style.top = '40%';
+		dflipcard1.style.left = '47.5px';
+		dflipcard2.style.top = '40%';
+		dflipcard2.style.left = '82.5px';
+		dflipinner3.id = 'dflipinner3';
+		dflipcard3.id = 'dflipcard3';
+		
+		document.querySelector('#dflipcard1').style.animation = 'moveincriment 1s forwards';
+		document.querySelector('#dflipcard2').style.animation = 'moveincriment 1s forwards';
+		document.querySelector('#dflipcard3').style.animation = 'move3d 1s forwards';
+		
+		} else if (hitCount === 2) {
+			dflipcard1.style.top = '40%';
+			dflipcard1.style.left = '30px';
+			dflipcard2.style.top = '40%';
+			dflipcard2.style.left = '65px';
+			dflipcard3.style.top = '40%';
+			dflipcard3.style.left = '100px';
+			dflipinner4.id = 'dflipinner4';
+			dflipcard4.id = 'dflipcard4';
+
+			document.querySelector('#dflipcard1').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#dflipcard2').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#dflipcard3').style.animation = 'moveincriment 1s forwards';
+			document.querySelector('#dflipcard4').style.animation = 'move4d 1s forwards';
+		} else if (hitCount === 3) {
+			dflipcard1.style.top = '40%';
+			dflipcard1.style.left = '12.5px';
+			dflipcard2.style.top = '40%';
+			dflipcard2.style.left = '47.5px';
+			dflipcard3.style.top = '40%';
+			dflipcard3.style.left = '82.5px';
+			dflipcard4.style.top = '40%';
+			dflipcard4.style.left = '117.5px';
+			dflipinner5.id = 'dflipinner5';
+			dflipcard5.id = 'dflipcard5';
+
+			document.querySelector('#dflipcard1').style.animation = 'moveincriment3 1s forwards';
+			document.querySelector('#dflipcard2').style.animation = 'moveincriment3 1s forwards';
+			document.querySelector('#dflipcard3').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#dflipcard4').style.animation = 'moveincriment 1s forwards';
+			document.querySelector('#dflipcard5').style.animation = 'move5d 1s forwards';
+		}
+	} else {
+	
+		if (hitCount === 1) {
+		
+		dflipcard1.style.top = '40%';
+		dflipcard1.style.left = '130px';
+		dflipcard2.style.top = '40%';
+		dflipcard2.style.left = '200px';
+		dflipinner3.id = 'dflipinner3';
+		dflipcard3.id = 'dflipcard3';
+		
+		document.querySelector('#dflipcard1').style.animation = 'moveincriment 1s forwards';
+		document.querySelector('#dflipcard2').style.animation = 'moveincriment 1s forwards';
+		document.querySelector('#dflipcard3').style.animation = 'move3d 1s forwards';
+		
+		} else if (hitCount === 2) {
+			dflipcard1.style.top = '40%';
+			dflipcard1.style.left = '95px';
+			dflipcard2.style.top = '40%';
+			dflipcard2.style.left = '165px';
+			dflipcard3.style.top = '40%';
+			dflipcard3.style.left = '235px';
+			dflipinner4.id = 'dflipinner4';
+			dflipcard4.id = 'dflipcard4';
+
+			document.querySelector('#dflipcard1').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#dflipcard2').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#dflipcard3').style.animation = 'moveincriment 1s forwards';
+			document.querySelector('#dflipcard4').style.animation = 'move4d 1s forwards';
+		} else if (hitCount === 3) {
+			dflipcard1.style.top = '40%';
+			dflipcard1.style.left = '60px';
+			dflipcard2.style.top = '40%';
+			dflipcard2.style.left = '130px';
+			dflipcard3.style.top = '40%';
+			dflipcard3.style.left = '200px';
+			dflipcard4.style.top = '40%';
+			dflipcard4.style.left = '270px';
+			dflipinner5.id = 'dflipinner5';
+			dflipcard5.id = 'dflipcard5';
+
+			document.querySelector('#dflipcard1').style.animation = 'moveincriment3 1s forwards';
+			document.querySelector('#dflipcard2').style.animation = 'moveincriment3 1s forwards';
+			document.querySelector('#dflipcard3').style.animation = 'moveincriment2 1s forwards';
+			document.querySelector('#dflipcard4').style.animation = 'moveincriment 1s forwards';
+			document.querySelector('#dflipcard5').style.animation = 'move5d 1s forwards';
+		}
+	};
 }
+
+
+
+
+
 
 const addCard = (e) => {
 	clickCount ++;	
 
+	hit.removeEventListener('click', addCard);
 
 	const randValue3 = Math.floor(Math.random()*13);
 	const randSuit3 = Math.floor(Math.random()*4);
@@ -744,169 +1047,26 @@ const addCard = (e) => {
 		winFunctionD();
 	};
 
-	/*Animation functions for each screen size break point*/
-
-	if (scale2.matches) {
-		if (clickCount === 1) {
-
-		flipcard1.style.top = '215%';
-		flipcard1.style.right = '-56.25%';
-		flipcard2.style.top = '215%';
-		flipcard2.style.right = '-73.75%';
-		flipinner3.id = 'flipinner3';
-		flipcard3.id = 'flipcard3';
 		
-		document.querySelector('#flipcard1').style.animation = 'moveincriment 1s forwards';
-		document.querySelector('#flipcard2').style.animation = 'moveincriment 1s forwards';
-		document.querySelector('#flipcard3').style.animation = 'move3 1s forwards';
-		
-		} else if (clickCount === 2) {
-			flipcard1.style.top = '215%';
-			flipcard1.style.right = '-47.5%';
-			flipcard2.style.top = '215%';
-			flipcard2.style.right = '-65%';
-			flipcard3.style.top = '215%';
-			flipcard3.style.right = '-82.5%';
-			flipinner4.id = 'flipinner4';
-			flipcard4.id = 'flipcard4';
+	cardPosition();
 
-			document.querySelector('#flipcard1').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#flipcard2').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#flipcard3').style.animation = 'moveincriment 1s forwards';
-			document.querySelector('#flipcard4').style.animation = 'move4 1s forwards';
-		} else if (clickCount === 3) {
-			flipcard1.style.top = '215%';
-			flipcard1.style.right = '-38.75%';
-			flipcard2.style.top = '215%';
-			flipcard2.style.right = '-56.25%';
-			flipcard3.style.top = '215%';
-			flipcard3.style.right = '-72.5%';
-			flipcard4.style.top = '215%';
-			flipcard4.style.right = '-91.25%';
-			flipinner5.id = 'flipinner5';
-			flipcard5.id = 'flipcard5';
+	const hitStayDelay = () => {
+		hit.addEventListener("click", addCard);
+	
 
-			document.querySelector('#flipcard1').style.animation = 'moveincriment3 1s forwards';
-			document.querySelector('#flipcard2').style.animation = 'moveincriment3 1s forwards';
-			document.querySelector('#flipcard3').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#flipcard4').style.animation = 'moveincriment 1s forwards';
-			document.querySelector('#flipcard5').style.animation = 'move5 1s forwards';
 		}
-	} else if (scale.matches) {
-			if (clickCount === 1) {
-		
-		flipcard1.style.top = '40%';
-		flipcard1.style.right = '82.5px';
-		flipcard2.style.top = '40%';
-		flipcard2.style.right = '47.5px';
-		flipinner3.id = 'flipinner3';
-		flipcard3.id = 'flipcard3';
-		
-		document.querySelector('#flipcard1').style.animation = 'moveincriment 1s forwards';
-		document.querySelector('#flipcard2').style.animation = 'moveincriment 1s forwards';
-		document.querySelector('#flipcard3').style.animation = 'move3 1s forwards';
-		
-		} else if (clickCount === 2) {
-			flipcard1.style.top = '40%';
-			flipcard1.style.right = '100px';
-			flipcard2.style.top = '40%';
-			flipcard2.style.right = '65px';
-			flipcard3.style.top = '40%';
-			flipcard3.style.right = '30px';
-			flipinner4.id = 'flipinner4';
-			flipcard4.id = 'flipcard4';
 
-			document.querySelector('#flipcard1').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#flipcard2').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#flipcard3').style.animation = 'moveincriment 1s forwards';
-			document.querySelector('#flipcard4').style.animation = 'move4 1s forwards';
-		} else if (clickCount === 3) {
-			flipcard1.style.top = '40%';
-			flipcard1.style.right = '117.5px';
-			flipcard2.style.top = '40%';
-			flipcard2.style.right = '82.5px';
-			flipcard3.style.top = '40%';
-			flipcard3.style.right = '47.5px';
-			flipcard4.style.top = '40%';
-			flipcard4.style.right = '12.5px';
-			flipinner5.id = 'flipinner5';
-			flipcard5.id = 'flipcard5';
+		if (cardSum1New3 <= 21)
+		{setTimeout(hitStayDelay, 1300);}
 
-			document.querySelector('#flipcard1').style.animation = 'moveincriment3 1s forwards';
-			document.querySelector('#flipcard2').style.animation = 'moveincriment3 1s forwards';
-			document.querySelector('#flipcard3').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#flipcard4').style.animation = 'moveincriment 1s forwards';
-			document.querySelector('#flipcard5').style.animation = 'move5 1s forwards';
-		
-		} 
-
-	} else {
-
-  		if (clickCount === 1) {
-		
-		flipcard1.style.top = '40%';
-		flipcard1.style.right = '200px';
-		flipcard2.style.top = '40%';
-		flipcard2.style.right = '130px';
-		flipinner3.id = 'flipinner3';
-		flipcard3.id = 'flipcard3';
-		click1stamp = e.timeStamp;
-		console.log(click1stamp);
-		document.querySelector('#flipcard1').style.animation = 'moveincriment 1s forwards';
-		document.querySelector('#flipcard2').style.animation = 'moveincriment 1s forwards';
-		document.querySelector('#flipcard3').style.animation = 'move3 1s forwards';
-		
-		} else if (clickCount === 2) {
-			flipcard1.style.top = '40%';
-			flipcard1.style.right = '235px';
-			flipcard2.style.top = '40%';
-			flipcard2.style.right = '165px';
-			click2stamp = e.timeStamp;
-			console.log(click2stamp);
-			const flip3 = () => {
-			flipcard3.style.top = '40%';
-			flipcard3.style.right = '95px';				
-			document.querySelector('#flipcard3').style.animation = 'moveincriment 1s forwards';
-			}
-
-
-
-			flipinner4.id = 'flipinner4';
-			flipcard4.id = 'flipcard4';
-
-			document.querySelector('#flipcard1').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#flipcard2').style.animation = 'moveincriment2 1s forwards';			
-			document.querySelector('#flipcard4').style.animation = 'move4 1s forwards';
-			/*	
-			if (click1stamp + 1000 < click2stamp) {
-				flip3();
-				console.log(click2stamp);
-			} else {
-				
-			}*/
-			flip3();
-			
-		} else if (clickCount === 3) {
-			flipcard1.style.top = '40%';
-			flipcard1.style.right = '270px';
-			flipcard2.style.top = '40%';
-			flipcard2.style.right = '200px';
-			flipcard3.style.top = '40%';
-			flipcard3.style.right = '130px';
-			flipcard4.style.top = '40%';
-			flipcard4.style.right = '60px';
-			flipinner5.id = 'flipinner5';
-			flipcard5.id = 'flipcard5';
-
-			document.querySelector('#flipcard1').style.animation = 'moveincriment3 1s forwards';
-			document.querySelector('#flipcard2').style.animation = 'moveincriment3 1s forwards';
-			document.querySelector('#flipcard3').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#flipcard4').style.animation = 'moveincriment 1s forwards';
-			document.querySelector('#flipcard5').style.animation = 'move5 1s forwards';
+		if (cardSum1New3 > 21) {
+			isBust = true;
+			setTimeout(timeFunction, 300);
 		}
+
+		
 };
 	
-};
 
 /*Remove event listener and flip the switch that lets the second dealer function execute*/
 
@@ -1942,6 +2102,7 @@ const genDealerHand2 = () => {
 	};
 
 	/*Printing messages that discribe how safe it is to hit again*/
+	
 	if (cardSum2 > 0 && cardSum2D > 0) {
 		dealBust.innerHTML = `Your ${cardSum2-cardSum2D} ahead`;
 	} else if (cardSum2 > 0 && cardSum2D === 0) {
@@ -1954,148 +2115,11 @@ const genDealerHand2 = () => {
 	
 
 	/*Animations*/
-	if (scale2.matches) {
-			if (hitCount === 1) {
-		
-		dflipcard1.style.top = '215%';
-		dflipcard1.style.left = '-73.75px';
-		dflipcard2.style.top = '215%';
-		dflipcard2.style.left = '-56.25px';
-		dflipinner3.id = 'dflipinner3';
-		dflipcard3.id = 'dflipcard3';
-		
-		document.querySelector('#dflipcard1').style.animation = 'moveincriment 1s forwards';
-		document.querySelector('#dflipcard2').style.animation = 'moveincriment 1s forwards';
-		document.querySelector('#dflipcard3').style.animation = 'move3d 1s forwards';
-		
-		} else if (hitCount === 2) {
-			dflipcard1.style.top = '215%';
-			dflipcard1.style.left = '-82.5px';
-			dflipcard2.style.top = '215%';
-			dflipcard2.style.left = '-65px';
-			dflipcard3.style.top = '215%';
-			dflipcard3.style.left = '-47.5px';
-			dflipinner4.id = 'dflipinner4';
-			dflipcard4.id = 'dflipcard4';
-
-			document.querySelector('#dflipcard1').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#dflipcard2').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#dflipcard3').style.animation = 'moveincriment 1s forwards';
-			document.querySelector('#dflipcard4').style.animation = 'move4d 1s forwards';
-		} else if (hitCount === 3) {
-			dflipcard1.style.top = '215%';
-			dflipcard1.style.left = '-91.25px';
-			dflipcard2.style.top = '215%';
-			dflipcard2.style.left = '-73.75px';
-			dflipcard3.style.top = '215%';
-			dflipcard3.style.left = '-56.25px';
-			dflipcard4.style.top = '215%';
-			dflipcard4.style.left = '-38.75px';
-			dflipinner5.id = 'dflipinner5';
-			dflipcard5.id = 'dflipcard5';
-
-			document.querySelector('#dflipcard1').style.animation = 'moveincriment3 1s forwards';
-			document.querySelector('#dflipcard2').style.animation = 'moveincriment3 1s forwards';
-			document.querySelector('#dflipcard3').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#dflipcard4').style.animation = 'moveincriment 1s forwards';
-			document.querySelector('#dflipcard5').style.animation = 'move5d 1s forwards';
-		}
-	} else if (scale.matches) {
-			if (hitCount === 1) {
-		
-		dflipcard1.style.top = '40%';
-		dflipcard1.style.left = '47.5px';
-		dflipcard2.style.top = '40%';
-		dflipcard2.style.left = '82.5px';
-		dflipinner3.id = 'dflipinner3';
-		dflipcard3.id = 'dflipcard3';
-		
-		document.querySelector('#dflipcard1').style.animation = 'moveincriment 1s forwards';
-		document.querySelector('#dflipcard2').style.animation = 'moveincriment 1s forwards';
-		document.querySelector('#dflipcard3').style.animation = 'move3d 1s forwards';
-		
-		} else if (hitCount === 2) {
-			dflipcard1.style.top = '40%';
-			dflipcard1.style.left = '30px';
-			dflipcard2.style.top = '40%';
-			dflipcard2.style.left = '65px';
-			dflipcard3.style.top = '40%';
-			dflipcard3.style.left = '100px';
-			dflipinner4.id = 'dflipinner4';
-			dflipcard4.id = 'dflipcard4';
-
-			document.querySelector('#dflipcard1').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#dflipcard2').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#dflipcard3').style.animation = 'moveincriment 1s forwards';
-			document.querySelector('#dflipcard4').style.animation = 'move4d 1s forwards';
-		} else if (hitCount === 3) {
-			dflipcard1.style.top = '40%';
-			dflipcard1.style.left = '12.5px';
-			dflipcard2.style.top = '40%';
-			dflipcard2.style.left = '47.5px';
-			dflipcard3.style.top = '40%';
-			dflipcard3.style.left = '82.5px';
-			dflipcard4.style.top = '40%';
-			dflipcard4.style.left = '117.5px';
-			dflipinner5.id = 'dflipinner5';
-			dflipcard5.id = 'dflipcard5';
-
-			document.querySelector('#dflipcard1').style.animation = 'moveincriment3 1s forwards';
-			document.querySelector('#dflipcard2').style.animation = 'moveincriment3 1s forwards';
-			document.querySelector('#dflipcard3').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#dflipcard4').style.animation = 'moveincriment 1s forwards';
-			document.querySelector('#dflipcard5').style.animation = 'move5d 1s forwards';
-		}
-	} else {
 	
-		if (hitCount === 1) {
-		
-		dflipcard1.style.top = '40%';
-		dflipcard1.style.left = '130px';
-		dflipcard2.style.top = '40%';
-		dflipcard2.style.left = '200px';
-		dflipinner3.id = 'dflipinner3';
-		dflipcard3.id = 'dflipcard3';
-		
-		document.querySelector('#dflipcard1').style.animation = 'moveincriment 1s forwards';
-		document.querySelector('#dflipcard2').style.animation = 'moveincriment 1s forwards';
-		document.querySelector('#dflipcard3').style.animation = 'move3d 1s forwards';
-		
-		} else if (hitCount === 2) {
-			dflipcard1.style.top = '40%';
-			dflipcard1.style.left = '95px';
-			dflipcard2.style.top = '40%';
-			dflipcard2.style.left = '165px';
-			dflipcard3.style.top = '40%';
-			dflipcard3.style.left = '235px';
-			dflipinner4.id = 'dflipinner4';
-			dflipcard4.id = 'dflipcard4';
 
-			document.querySelector('#dflipcard1').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#dflipcard2').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#dflipcard3').style.animation = 'moveincriment 1s forwards';
-			document.querySelector('#dflipcard4').style.animation = 'move4d 1s forwards';
-		} else if (hitCount === 3) {
-			dflipcard1.style.top = '40%';
-			dflipcard1.style.left = '60px';
-			dflipcard2.style.top = '40%';
-			dflipcard2.style.left = '130px';
-			dflipcard3.style.top = '40%';
-			dflipcard3.style.left = '200px';
-			dflipcard4.style.top = '40%';
-			dflipcard4.style.left = '270px';
-			dflipinner5.id = 'dflipinner5';
-			dflipcard5.id = 'dflipcard5';
+	
 
-			document.querySelector('#dflipcard1').style.animation = 'moveincriment3 1s forwards';
-			document.querySelector('#dflipcard2').style.animation = 'moveincriment3 1s forwards';
-			document.querySelector('#dflipcard3').style.animation = 'moveincriment2 1s forwards';
-			document.querySelector('#dflipcard4').style.animation = 'moveincriment 1s forwards';
-			document.querySelector('#dflipcard5').style.animation = 'move5d 1s forwards';
-		}
-	};
-
-
+	dealerCardPosition();
 	timeFunction2();
 
   };
@@ -2112,7 +2136,7 @@ const timeFunction = () => {
 		cardSum1New3Out = cardSum1;
 	 }; 
 
-
+if (!isBust) {
 	if (cardSum2 > 0 && cardSum2D > 0) {
 		dealBust.innerHTML = `Your ${cardSum2-cardSum2D} ahead`;
 	};
@@ -2128,6 +2152,7 @@ const timeFunction = () => {
 	if (cardSum2 === 0 && cardSum2D === 0) {
 		dealBust.innerHTML = `Your ${cardSum1New3Out-cardSum1D} ahead`;
 	};
+}
 
 
 	dflipinner1.id = 'dflipinner1';
@@ -2375,7 +2400,7 @@ const timeFunction = () => {
 				
 		};
 
-
+		if (!isBust) {
 			if (cardSum2 === 0) {
 				playerNoAce();
 				
@@ -2383,6 +2408,7 @@ const timeFunction = () => {
 				playerAce();
 				
 			};
+		}
 	
 };
 
@@ -2925,6 +2951,8 @@ const resetAnimations = () => {
     dflipinner1.style.display = 'none';
 	flipinner1.style.display = 'none';
 	flipinner2.style.display = 'none';
+
+	isBust = false;
 	
 	hit.removeEventListener("click", addCard);
 
@@ -2943,6 +2971,13 @@ const resetAnimations = () => {
 
 
 
-
+scale.addEventListener('change', () => {
+	cardPosition();
+	dealerCardPosition();
+});
+scale2.addEventListener('change', () => {
+	cardPosition();
+	dealerCardPosition();
+});
 newHandButton.addEventListener('click', genDealerHand);
 newHandButton.addEventListener('click', resetAnimations);
