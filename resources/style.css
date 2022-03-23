@@ -164,7 +164,7 @@ your hole page from top to bottom with flex I think. Flex just works in any case
 	margin: 0;
 	margin-bottom: 50px;
 	width: 100%;
-	height: 550px;
+	height: 600px;
 	padding: 0;
 	background: linear-gradient(315deg, gray, lightgray, gray) ;
 	
@@ -189,7 +189,7 @@ your hole page from top to bottom with flex I think. Flex just works in any case
 	margin: 0;
 	margin-bottom: 50px;
 	width: 100%;
-	height: 550px;
+	height: 600px;
 	padding: 0;
 	background: linear-gradient(45deg, gray, lightgray, gray);
 }
@@ -210,7 +210,7 @@ your hole page from top to bottom with flex I think. Flex just works in any case
 	align-items: center;
 	margin: 0;
 	width: 100%;
-	height: 550px;
+	height: 600px;
 	padding: 0;
 	background: linear-gradient(315deg, gray, lightgray, gray);
 }
@@ -780,12 +780,6 @@ footer form textarea {
 	
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px silver inset !important;
-}
 
 .form-color:focus {
 	border: none;
