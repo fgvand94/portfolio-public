@@ -295,13 +295,7 @@ const cardPosition = (event) => {
 			document.querySelector('#flipcard1').style.animation = 'moveincriment2 1s forwards';
 			document.querySelector('#flipcard2').style.animation = 'moveincriment2 1s forwards';			
 			document.querySelector('#flipcard4').style.animation = 'move4 1s forwards';
-			/*	
-			if (click1stamp + 1000 < click2stamp) {
-				flip3();
-				console.log(click2stamp);
-			} else {
-				
-			}*/
+
 			flip3();
 			
 		} else if (clickCount === 3) {
