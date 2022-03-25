@@ -67,35 +67,15 @@ a:hover {
 }
 
 .column-container {
-	display: flex;
+	width: 1240px;
 	margin-left: auto;
 	margin-right: auto;
-	justify-content: center;
-}
-
-.column {
-	width: 400px;
 	
-	background-color: gray;
-
 }
 
-.wildlife {
-	margin-left: 20px;
-	margin-right: 20px;
+.thread {
+    width: 100%;
+    height: 40px;
+    background-color: gray;
 }
 
-.column-header {
-	text-align: center;
-}
-
-.column-block {
-	width: 100%;
-	height: 100px;
-	background-color: white;
-	margin-top: 20px;
-}
-
-.search-input, .search-button {
-	display: inline;
-}
