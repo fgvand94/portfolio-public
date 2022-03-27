@@ -39,6 +39,32 @@ a:hover {
 	margin-left: 10px;
 }
 
+.drop-down {
+	padding-left: 20px;
+}
+
+.drop-down-content {
+	position: absolute;
+	display: none;
+	align-items: center;
+	background-color: white;
+	width: 300px;
+	height: 50px;
+	right: 10px;
+	text-align: center;
+}
+
+.drop-down:hover .drop-down-content {
+	display: flex;
+}
+
+button {
+	margin-left: auto;
+	margin-right: auto;
+	height: 30px;
+	width: 150px;
+}
+
 
 
 .main-header {
@@ -50,7 +76,7 @@ a:hover {
 	background-image: url(../images/Free_Wood_Texture_09.jpg);
 	background-size: contain;
 	height: 100vh;
-	width: 100vw;
+	width: 100%;
 	position: fixed;
 	z-index: -1;	
 }
@@ -75,7 +101,18 @@ a:hover {
 
 .thread {
     width: 100%;
-    height: 40px;
+    height: 60px;
     background-color: gray;
+	margin-top: 5px;
+}
+/*I think it's not considered best practice to do this but it seems more efficient
+then comming up with js to give class names to these things. */
+.thread h2, .thread p{
+	margin-bottom: 7px;
+	margin-top: 0;
+}
+
+.forumNav {
+	display: inline;
 }
 

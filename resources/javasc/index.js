@@ -1,38 +1,56 @@
 const form = document.querySelector('#form');
+const forum = document.querySelector('.column');
 let name = document.getElementById('name-input');
 let email = document.getElementById('email-input');
 let message = document.getElementById('message-input');
 
 
 
-form.addEventListener('submit', (e)=> {
-  e.preventDefault();
   
-  let formData = {
-    name: name.value,
-    email: email.value,
-    message: message.value
-  }
-  console.log(formData);
 
-  let xhr = new XMLHttpRequest();
-  xhr.open('POST', '/');
-  xhr.setRequestHeader('content-type', 'application/json');
-  xhr.onload = function() {
-    console.log(xhr.responseText);
-    if(xhr.responseText == 'success') {
-      alert('Email sent');
-      name.value = '';
-      email.value = '';
-      message.value = '';
-    } else {
-      alert('ERROR');
-    }
-  }
- 
-  xhr.send(JSON.stringify(formData));
+  // let xhr = new XMLHttpRequest();
+  // xhr.open('GET', '/e.target.innerHTML');
+  // xhr.send(htmlUpdate.name);
+
+
+
+
+// form.addEventListener('submit', (e)=> {
+//   e.preventDefault();
   
-});
+//   let formData = {
+//     name: name.value,
+//     email: email.value,
+//     message: message.value
+//   }
+//   console.log(formData);
+
+//   let xhr = new XMLHttpRequest();
+//   xhr.open('POST', '/');
+//   xhr.setRequestHeader('content-type', 'application/json');
+//   xhr.onload = function() {
+//     console.log(xhr.responseText);
+//     if(xhr.responseText == 'success') {
+//       alert('Email sent');
+//       name.value = '';
+//       email.value = '';
+//       message.value = '';
+//     } else {
+//       alert('ERROR');
+//     }
+//   }
+ 
+//   xhr.send(JSON.stringify(formData));
+  
+// });
+
+// navigate.addEventListener('click', (e) => {
+//   e.preventDefault();
+
+//   let formData = {
+
+//   }
+// })
 
 
 
