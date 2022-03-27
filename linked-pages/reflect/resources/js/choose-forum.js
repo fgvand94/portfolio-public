@@ -15,11 +15,9 @@ const removeClick = () => {
     forum.addEventListener('mouseover', getForumName);
 }
 
-// export const retForumInfo = () => {
-//     return forumInfo
-// 
+
 forum.addEventListener('mouseover', getForumName);
-// forum.addEventListener('click', removeClick);
+
 
 
 
