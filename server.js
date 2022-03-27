@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 
 
-app.post('/', (req, res) => {
+app.post('/server.js', (req, res) => {
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Origin", "*");
   console.log(req.body);
@@ -50,8 +50,8 @@ app.post('/', (req, res) => {
 })
 
 //port will be 5000 for testing
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}...`);
-});
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT, () => {
+//   console.log(`Listening on port ${PORT}...`);
+// });
 
