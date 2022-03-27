@@ -22,7 +22,7 @@ form.addEventListener('submit', (e)=> {
   console.log(formData);
 
   let xhr = new XMLHttpRequest();
-  xhr.open('POST', '/');
+  xhr.open('POST', '/server.js');
   xhr.setRequestHeader('content-type', 'application/json', {
     allow: 'POST'
   });
