@@ -22,7 +22,7 @@ form.addEventListener('submit', (e)=> {
   console.log(formData);
 
   let xhr = new XMLHttpRequest();
-  xhr.open('POST', '/server.js');
+  xhr.open('POST', '/');
   xhr.setRequestHeader('content-type', 'application/json', {
     allow: 'POST'
   });
@@ -42,13 +42,7 @@ form.addEventListener('submit', (e)=> {
   
 });
 
-navigate.addEventListener('click', (e) => {
-  e.preventDefault();
 
-  let formData = {
-
-  }
-})
 
 
 
